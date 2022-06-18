@@ -1,9 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import Contact from "./components/Contact";
-
-// Uncomment untuk memuat daftar kontak
-// import contacts from './data/contacts.json';
+import data from "./data/contacts.json";
 
 const App = () => {
   // Masukkan Header dan Contact ke dalam div App
@@ -12,7 +10,9 @@ const App = () => {
       <div className="container">
         <Header />
         <div className="divider"></div>
-        <Contact />
+        {data.map((contact, index) => {
+          return <Contact data={contact} key={index} />;
+        })}
       </div>
     </div>
   );
